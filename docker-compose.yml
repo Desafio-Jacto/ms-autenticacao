@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  api-autenticacao:
+    build: .
+    container_name: jacto-api-autenticacao
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/jacto
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: senha123
+
+  db:
+    image: postgres:15
+    container_name: jacto-postgres
+    environment:
+      POSTGRES_DB: jacto
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: senha123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
