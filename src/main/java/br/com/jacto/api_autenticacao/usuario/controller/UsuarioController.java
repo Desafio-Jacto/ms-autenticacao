@@ -1,6 +1,7 @@
 package br.com.jacto.api_autenticacao.usuario.controller;
 
-import br.com.jacto.api_autenticacao.usuario.dto.RegistroUsuarioDTO;
+import br.com.jacto.api_autenticacao.usuario.dto.request.RegistroUsuarioDTO;
+import br.com.jacto.api_autenticacao.usuario.dto.response.UsuarioResponseDTO;
 import br.com.jacto.api_autenticacao.usuario.model.Usuario;
 import br.com.jacto.api_autenticacao.usuario.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,8 +30,10 @@ public class UsuarioController {
     @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso. Retorna os dados do novo usuário.")
     @ApiResponse(responseCode = "400", description = "Dados da requisição inválidos.")
     @ApiResponse(responseCode = "409", description = "E-mail já cadastrado.")
-    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody @Valid RegistroUsuarioDTO dados) {
+    public ResponseEntity<UsuarioResponseDTO> cadastrarUsuario(@RequestBody @Valid RegistroUsuarioDTO dados) {
         Usuario novoUsuario = usuarioService.cadastrar(dados);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(new UsuarioResponseDTO(novoUsuario));
     }
 }

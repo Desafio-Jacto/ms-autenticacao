@@ -1,7 +1,7 @@
 package br.com.jacto.api_autenticacao.usuario.service;
 
 import br.com.jacto.api_autenticacao.infra.exceptions.EmailJaCadastradoException;
-import br.com.jacto.api_autenticacao.usuario.dto.RegistroUsuarioDTO;
+import br.com.jacto.api_autenticacao.usuario.dto.request.RegistroUsuarioDTO;
 import br.com.jacto.api_autenticacao.usuario.model.Usuario;
 import br.com.jacto.api_autenticacao.usuario.repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

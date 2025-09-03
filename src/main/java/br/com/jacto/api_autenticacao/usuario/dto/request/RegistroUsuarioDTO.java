@@ -1,4 +1,4 @@
-package br.com.jacto.api_autenticacao.usuario.dto;
+package br.com.jacto.api_autenticacao.usuario.dto.request;
 
 import br.com.jacto.api_autenticacao.enums.Role;
 import jakarta.validation.constraints.Email;

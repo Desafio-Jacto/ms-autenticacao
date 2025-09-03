@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "API de Agendamento Jacto",
+                title = "API de Autenticação Jacto",
                 description = "API para autenticação dos sistemas da Jacto.",
                 version = "1.0",
                 contact = @Contact(
